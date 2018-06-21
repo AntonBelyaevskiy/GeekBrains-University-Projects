@@ -1,0 +1,71 @@
+.text-area {
+   -fx-background-color: transparent;
+}
+
+.text-area .viewport {
+    -fx-background-color: transparent;
+}
+
+.text-area .content {
+    -fx-background-color: transparent;
+}
+
+.nick{
+    -fx-font-weight: bold;
+    -fx-text-fill: #0076B5;
+    -fx-padding:0 10 0 10;
+    -fx-border-color: #0076B5;
+    -fx-border-radius: 3 3 3 3;
+}
+
+.button{
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-focus-color: transparent;
+    -fx-background-insets: 0px;
+
+}
+
+.head{
+    -fx-background-image: url("../res/bg.png");
+    -fx-background-size: 100% 100%;
+
+}
+
+.serviceText{
+     -fx-padding:0 3 0 3;
+     -fx-border-color: #0076B5;
+     -fx-border-radius: 3 3 3 3;
+}
+
+.transp {
+   -fx-background-color: transparent;
+   -fx-prompt-text-fill: #0076B5;
+}
+
+.topBorder{
+    -fx-border-color: #0076B5;
+    -fx-border-radius: 3 3 3 3;
+}
+
+.scroll-pane{
+    -fx-hbar-policy : never;
+    -fx-vbar-policy : never;
+}
+
+.textFieldDecor{
+    -fx-background-color: transparent;
+    -fx-prompt-text-fill: #73ceff;
+    -fx-border-color: #0076B5;
+    -fx-border-radius: 3 3 3 3;
+}
+
+.leftBlock{
+    -fx-background-color: transparent;
+    -fx-prompt-text-fill: #73ceff;
+    -fx-border-color: #0076B5;
+}
+
+.listBlock{
+    -fx-background-color: transparent;
+    -fx-prompt-text-fill: #73ceff;
+}

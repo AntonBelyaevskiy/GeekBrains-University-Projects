@@ -1,0 +1,156 @@
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+
+<?import javafx.scene.control.ListView?>
+
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<GridPane fx:controller="client.Controller" xmlns:fx="http://javafx.com/fxml" stylesheets="@mystyle.css"
+          fx:id="rootNode" >
+
+    <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.vgrow="ALWAYS" GridPane.hgrow="ALWAYS"
+          alignment="CENTER">
+        <VBox alignment="CENTER">
+            <Text fx:id="serviceText" wrappingWidth="200" textAlignment="CENTER">
+                <VBox.margin>
+                    <Insets bottom="10"/>
+                </VBox.margin>
+            </Text>
+
+            <Button fx:id="showPutInBaseBlock" text="Зарегистрироваться" prefWidth="200" onAction="#regInBase">
+                <VBox.margin>
+                    <Insets bottom="10"/>
+                </VBox.margin>
+            </Button>
+
+            <Button fx:id="showLogInBlock" text="У меня есть аккаунт" prefWidth="200" visible="false" managed="false"
+                    onAction="#logIn">
+                <VBox.margin>
+                    <Insets bottom="10"/>
+                </VBox.margin>
+            </Button>
+
+            <TextField fx:id="loginField" prefWidth="200" promptText="логин (log - реальный из БД)" styleClass="textFieldDecor"
+                       onAction="#onAuthClick">
+                <VBox.margin>
+                    <Insets top="10" bottom="10"/>
+                </VBox.margin>
+            </TextField>
+            <PasswordField fx:id="passField" prefWidth="200" promptText="пароль (pas - реальный из БД)" styleClass="textFieldDecor"
+                           onAction="#onAuthClick">
+                <VBox.margin>
+                    <Insets top="10" bottom="10"/>
+                </VBox.margin>
+            </PasswordField>
+            <Button fx:id="enterIn" text="Войти" onAction="#onAuthClick" prefWidth="200">
+                <VBox.margin>
+                    <Insets top="10"/>
+                </VBox.margin>
+            </Button>
+
+
+            <TextField fx:id="authLoginInBase" prefWidth="200" visible="false" managed="false" styleClass="textFieldDecor"
+                       promptText="придумайте логин">
+                <VBox.margin>
+                    <Insets top="10" bottom="10"/>
+                </VBox.margin>
+            </TextField>
+            <PasswordField fx:id="authPassInBase" prefWidth="200" promptText="придумайте пароль" visible="false"
+                       styleClass="textFieldDecor" managed="false">
+                <VBox.margin>
+                    <Insets top="10" bottom="10"/>
+                </VBox.margin>
+            </PasswordField>
+            <TextField fx:id="authNickInBase" prefWidth="200" promptText="ваш ник" visible="false" managed="false"
+                       styleClass="textFieldDecor">
+                <VBox.margin>
+                    <Insets top="10" bottom="10"/>
+                </VBox.margin>
+            </TextField>
+
+            <Button fx:id="putInBaseBtn" text="Создать аккаунт" prefWidth="200" visible="false" managed="false"
+            onAction="#regNewUser">
+                <VBox.margin>
+                    <Insets top="10"/>
+                </VBox.margin>
+            </Button>
+        </VBox>
+    </HBox>
+
+    <GridPane GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="head">
+
+        <VBox fx:id="listBlock" GridPane.rowIndex="0" GridPane.columnIndex="0" visible="false" managed="false"
+              styleClass="leftBlock">
+            <StackPane>
+                <HBox HBox.hgrow="ALWAYS" alignment="CENTER">
+                    <Label fx:id="nickLabel" visible="false" managed="false"/>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT">
+                    <Button fx:id="exitBtn" visible="false" managed="false" onAction="#exitFromMessenger" styleClass="transp">
+                        <graphic>
+                            <ImageView fitWidth="15" fitHeight="18">
+                                <Image url="/res/exit.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </HBox>
+            </StackPane>
+
+            <ListView fx:id="clientsListView" onMouseClicked="#clickOnClientList" visible="false" managed="false" styleClass="listBlock"/>
+        </VBox>
+
+        <VBox GridPane.rowIndex="0" GridPane.columnIndex="1" >
+
+            <StackPane VBox.vgrow="ALWAYS" alignment="TOP_RIGHT">
+                <TextArea fx:id="textArea" editable="false" visible="false" managed="false" wrapText="true" >
+                    <padding> <Insets top="15"/></padding>
+                </TextArea>
+
+                <Label fx:id="textInfo" visible="false" managed="false">
+                    <StackPane.margin><Insets right="5" top="3"/></StackPane.margin>
+                </Label>
+            </StackPane>
+
+
+            <HBox GridPane.rowIndex="1" GridPane.columnIndex="1" prefHeight="35" GridPane.hgrow="ALWAYS" alignment="CENTER"
+            visible="false" managed="false" fx:id="messBlock">
+                <HBox HBox.hgrow="ALWAYS" alignment="CENTER_RIGHT" styleClass="topBorder">
+                    <VBox alignment="CENTER">
+                        <Label fx:id="toNick" prefHeight="25" visible="false" managed="false" styleClass="nick">
+                            <VBox.margin>
+                                <Insets left="5"/>
+                            </VBox.margin>
+                        </Label>
+                    </VBox>
+                    <TextField fx:id="msgField" promptText="введите сообщение..." prefHeight="35" HBox.hgrow="ALWAYS" styleClass="transp"
+                               onAction="#sendMessage" visible="false" managed="false" onKeyTyped="#showSendBtn"/>
+                    <Button fx:id="sendBtn" onAction="#sendMessage" visible="false" managed="false" styleClass="transp">
+                        <HBox.margin><Insets right="3" left="3"/></HBox.margin>
+                        <graphic>
+                            <ImageView fitWidth="20" fitHeight="20">
+                                <Image url="/res/send.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </HBox>
+
+
+            </HBox>
+        </VBox>
+    </GridPane>
+
+</GridPane>
+
+
