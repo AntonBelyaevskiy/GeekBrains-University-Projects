@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="lesson8:jar">
+    <output-path>$USER_HOME$/Desktop</output-path>
+    <root id="archive" name="lesson8.jar">
+      <element id="module-output" name="lesson8" />
+    </root>
+  </artifact>
+</component>
