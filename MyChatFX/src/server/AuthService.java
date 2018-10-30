@@ -1,7 +1,5 @@
 package server;
 
-import org.sqlite.JDBC;
-
 import java.sql.*;
 
 public class AuthService {
